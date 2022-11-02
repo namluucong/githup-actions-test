@@ -1,0 +1,9 @@
+name: hello world
+on:
+  push:
+    branches: [main]
+jobs:
+  say-hello: I
+    runs-on: centos7-latest
+    steps:
+      - run: echo Hello World 
