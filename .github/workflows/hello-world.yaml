@@ -1,9 +1,12 @@
 name: hello world
 on:
   push:
+    - 'docs/**.go'
     branches: [main]
 jobs:
   say-hello: 
     runs-on: ubuntu-latest
     steps:
       - run: echo Hello World 
+      - run: echo "TODAY is $(date)" > $GITHUB_ENV
+      - run: echo Heello world. $date
