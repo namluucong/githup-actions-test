@@ -9,5 +9,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo Hello World 
-      - run: echo "TODAY is $(date)" > $GITHUB_ENV
+      - run: echo "TODAY is $(date)" >> $GITHUB_ENV
       - run: echo Heello world. $date
