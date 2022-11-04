@@ -5,6 +5,7 @@ on:
       - '!docs/**'
       - '**.go'
     branches: [main]
+    workplow_dispatch:
 jobs:
   say-hello: 
     runs-on: ubuntu-latest
