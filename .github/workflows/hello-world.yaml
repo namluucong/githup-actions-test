@@ -1,7 +1,8 @@
 name: hello world
 on:
   push:
-    - 'docs/**.go'
+    path:
+      - 'docs/**.go'
     branches: [main]
 jobs:
   say-hello: 
