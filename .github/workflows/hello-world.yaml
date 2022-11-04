@@ -5,11 +5,18 @@ on:
       - '!docs/**'
       - '**.go'
     branches: [main]
-    workplow_dispatch:
+    pull_request:
+      type: [open, reopened,synchronize,labeled,unlabeled]
+    workflow_dispatch:
 jobs:
   say-hello: 
     runs-on: ubuntu-latest
     steps:
+      - uses: mheap/github-action-required-labels@v2
+        with:
+          mode: exactly
+          count: 0
+          labels: "do not build"
       - run: echo Hello World 
       - run: echo "TODAY is $(date)" 
       - run: echo Heello world. $date
