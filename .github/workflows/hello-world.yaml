@@ -1,7 +1,7 @@
 name: hello world
 on:
   push:
-    path:
+    paths:
       - '!docs/**'
       - '**.go'
     branches: [main]
