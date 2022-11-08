@@ -18,5 +18,6 @@ jobs:
           go-version: '1.19'
       - run: go version
       - run: go env -w GO111MODULE=off
+      - run: go get -u github.com/helloyi/go-sshclient
       - run: go run 'docs/hello_world.go'
 
