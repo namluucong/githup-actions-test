@@ -9,12 +9,6 @@ on:
     type: [opened, reopened,synchronize,labeled,unlabeled]
   workflow_dispatch:
 jobs:
-  say-hello: 
-    runs-on: ubuntu-latest
-    steps:
-      - run: echo Hello World 
-      - run: echo "TODAY is $(date)" 
-      - run: echo Heello world. $date
   Setup-golang:  
     runs-on: ubuntu-latest
     steps:
@@ -23,4 +17,8 @@ jobs:
         with:
           go-version: '1.19'
       - run: go version
+  run-scripts:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
       - run: go run 'docs/hello_world.go'
