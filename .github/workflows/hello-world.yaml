@@ -12,11 +12,14 @@ jobs:
   say-hello: 
     runs-on: ubuntu-latest
     steps:
-      - uses: mheap/github-action-required-labels@v2
-        with:
-          mode: exactly
-          count: 0
-          labels: "do not build"
       - run: echo Hello World 
       - run: echo "TODAY is $(date)" 
       - run: echo Heello world. $date
+  Setup golang:  
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-go@v3
+        with:
+          go-version: '1.19'
+      - run: go version
+      - run: go run docs/**.go
