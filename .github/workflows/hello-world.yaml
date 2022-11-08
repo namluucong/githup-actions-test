@@ -17,9 +17,6 @@ jobs:
         with:
           go-version: '1.19'
       - run: go version
-  run-scripts:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
       - run: go env -w GO111MODULE=off
       - run: go run 'docs/hello_world.go'
+
