@@ -15,7 +15,7 @@ jobs:
       - run: echo Hello World 
       - run: echo "TODAY is $(date)" 
       - run: echo Heello world. $date
-  Setup golang:  
+  Setup-golang:  
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
