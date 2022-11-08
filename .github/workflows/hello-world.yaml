@@ -2,8 +2,8 @@ name: hello world
 on:
   push:
     paths:
-      - '!docs/**'
-      - '**.go'
+      # - '!docs/**'
+      # - '**.go'
     branches: [main]
   pull_request:
     type: [opened, reopened,synchronize,labeled,unlabeled]
