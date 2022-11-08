@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"io/ioutil"
 	"log"
 	"os"
 
@@ -15,35 +14,35 @@ func main() {
 }
 
 func runScripts(cmd string) {
-	host := "103.200.21.8"
+	host := "103.200.21.199"
 	port := "22"
 	user := "root"
 
 	//pass privatekey
-	keypass := "namluu"
-	//pass := "ohCwgZc4fWdAWbhgioWt"
+	//keypass := "namluu"
+	pass := "vietnix@2016"
 
 	//path of privatekey
-	pathOfPriKey := "/Users/koongnam/.ssh/auth.vietnix.vn"
+	//pathOfPriKey := "/Users/koongnam/.ssh/auth.vietnix.vn"
 
-	key, err := ioutil.ReadFile(pathOfPriKey)
-	if err != nil {
-		log.Fatalf("unable to read private key: %v", err)
-	}
+	// key, err := ioutil.ReadFile(pathOfPriKey)
+	// if err != nil {
+	// 	log.Fatalf("unable to read private key: %v", err)
+	// }
 
 	// Create the Signer for this private key.
-	priKey, err := ssh.ParsePrivateKeyWithPassphrase(key, []byte(keypass))
-	if err != nil {
-		log.Fatalf("unable to parse private key: %v", err)
-	}
+	// priKey, err := ssh.ParsePrivateKeyWithPassphrase(key, []byte(keypass))
+	// if err != nil {
+	// 	log.Fatalf("unable to parse private key: %v", err)
+	// }
 
 	// ssh client config
 	config := &ssh.ClientConfig{
 		User: user,
 		Auth: []ssh.AuthMethod{
 			//sử dụng private key = hàm publickey hoặc dùng pass root = hàm password, 1 trong 2
-			//ssh.Password(pass),   //-> use password root
-			ssh.PublicKeys(priKey), //-> use privatekey
+			ssh.Password(pass), //-> use password root
+			//ssh.PublicKeys(priKey), //-> use privatekey
 		},
 		// allow any host key to be used (non-prod)
 		HostKeyCallback: ssh.InsecureIgnoreHostKey(),
