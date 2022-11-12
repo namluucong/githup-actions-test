@@ -75,7 +75,10 @@ func runScripts(cmd string) {
 }
 
 func hello_world() {
+	var id string
 	fmt.Print("Hello world!")
 	fmt.Print("Hello world - feature!!!!")
 	fmt.Print("Hello world - setup golang!!	!!!")
+	fmt.Scan(&id)
+	fmt.Println(" ", id)
 }
