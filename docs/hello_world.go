@@ -80,5 +80,5 @@ func hello_world() {
 	fmt.Print("Hello world - feature!!!!")
 	fmt.Print("Hello world - setup golang!!	!!!")
 	fmt.Scan(&id)
-	fmt.Println(" ", id)
+	fmt.Println("id: ", id)
 }

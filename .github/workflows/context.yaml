@@ -9,3 +9,11 @@ jobs:
         env: 
           GITHUB_CONTEXT: ${{ toJson(github) }}
         run: echo "$GITHUB_CONTEXT"
+      - name: Dump RUNNER context
+        env: 
+          RUNNER_CONTEXT: ${{ toJson(github) }}
+        run: echo "$RUNNER_CONTEXT"
+      - name: Dump STEPS context
+        env: 
+          STEPS_CONTEXT: ${{ toJson(github) }}
+        run: echo "$STEPS_CONTEXT"
