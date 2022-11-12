@@ -22,4 +22,4 @@ jobs:
       - name: dump TEST_SECRET
         run: echo ${{ secrets.TEST_SECRET }}
       - name: list file in folder docs
-        run: ls -la docs
+        run: ls -la
