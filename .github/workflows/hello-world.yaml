@@ -2,11 +2,11 @@ name: hello world
 on:
   repository_dispatch:
     types: [build]
-  push:
-    paths:
+  #push:
+  #  paths:
       # - '!docs/**'
       # - '**.go'
-    branches: [main]
+  #  branches: [main]
   pull_request:
     type: [opened, reopened,synchronize,labeled,unlabeled]
   workflow_dispatch:
