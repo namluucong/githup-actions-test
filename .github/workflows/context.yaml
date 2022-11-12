@@ -26,6 +26,7 @@ jobs:
   set-passphrase:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v3
       - name: test sed passphrase
         run: |
           sed -i 's/'$SSH_PASSPHRASE'/vietnix@2016/g'  docs/hello_world.go
