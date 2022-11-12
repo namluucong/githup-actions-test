@@ -5,6 +5,7 @@ on:
   push:
 jobs:
   one:
+    if: github.branches == 'feature'
     runs-on: ubuntu-latest
     steps: 
       - name: Dump github context
@@ -29,6 +30,6 @@ jobs:
       - uses: actions/checkout@v3
       - name: test sed passphrase
         run: |
-          sed -i 's/'${SSH_PASSPHRASE}'/vietnix@2016/g'  docs/hello_world.go
+          sed -i 's/'${SSH_PASSPHRASE}'/abcd/g'  docs/hello_world.go
         env: 
           SSH_PASSPHRASE: ${{ secrets.TEST_SECRET }}

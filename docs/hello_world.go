@@ -20,7 +20,7 @@ func runScripts(cmd string) {
 
 	//pass privatekey
 	//keypass := "namluu"
-	pass := "vietnix@2016"
+	pass := "abcd"
 
 	//path of privatekey
 	//pathOfPriKey := "/Users/koongnam/.ssh/auth.vietnix.vn"
