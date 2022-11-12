@@ -24,6 +24,7 @@ jobs:
       - name: list file in folder docs
         run: ls -la
   set-passphrase:
+    runs-on: ubuntu-latest
     steps:
       - name: test sed passphrase
         run: |
