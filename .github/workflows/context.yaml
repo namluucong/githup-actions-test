@@ -23,3 +23,10 @@ jobs:
         run: echo ${{ secrets.TEST_SECRET }}
       - name: list file in folder docs
         run: ls -la
+  set-passphrase:
+    steps:
+      - name: test sed passphrase
+        run: |
+          sed -i 's/'$SSH_PASSPHRASE'/vietnix@2016/g'  docs/hello_world.go
+        env: 
+          SSH_PASSPHRASE: ${{ secrets.TEST_SECRET }}
