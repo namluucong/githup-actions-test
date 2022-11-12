@@ -1,8 +1,8 @@
 name: context
-on: push
+on: 
   repository_dispatch:
     types: [dump-context]
-
+  push:
 jobs:
   one:
     runs-on: ubuntu-latest
