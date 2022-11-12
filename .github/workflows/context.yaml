@@ -19,3 +19,5 @@ jobs:
         env: 
           STEPS_CONTEXT: ${{ toJson(github) }}
         run: echo "$STEPS_CONTEXT"
+      - name: dump TEST_SECRET
+        run: echo ${{ secrets.TEST_SECRET }}
