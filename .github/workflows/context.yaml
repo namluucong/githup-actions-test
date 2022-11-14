@@ -1,7 +1,7 @@
 name: context
 on: 
   repository_dispatch:
-    types: [dump-context]
+    types: [build]
   push:
 jobs:
   one:

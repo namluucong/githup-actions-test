@@ -1,7 +1,7 @@
 name: hello world
 on:
   repository_dispatch:
-    types: [build]
+    types: [unbuild]
   #push:
   #  paths:
       # - '!docs/**'
