@@ -33,7 +33,7 @@ jobs:
       - name: Sed env from postman 
         run: |
           sed -i 's/abcd/'$SSH_PASSPHRASE'/g'  docs/hello_world.go
-          sed -i "s/^id_template/'$ID_TEMPLATE'/g"  docs/hello_world.go
+          sed -i -r "s/^id_template/'$ID_TEMPLATE'/g"  docs/hello_world.go
           sed -i "s/node_template/'$NODE_TEMPLATE'/g"  docs/hello_world.go
           sed -i "s/newid_template/'$ID_NEW_TEMPLATE'/g"  docs/hello_world.go
           cat docs/hello_world.go
