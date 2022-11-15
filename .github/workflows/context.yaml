@@ -33,11 +33,15 @@ jobs:
       - name: test sed passphrase
         run: |
           sed -i 's/abcd/'$SSH_PASSPHRASE'/g'  docs/hello_world.go
+          sed -i 's/id_template/'$ID_TEMPLATE'/g'  docs/hello_world.go
+          sed -i 's/node_template/'$NODE_TEMPLATE'/g'  docs/hello_world.go
+          sed -i 's/new_id_template/'$ID_NEW_TEMPLATE'/g'  docs/hello_world.go
+          cat docs/hello_world.go
         env: 
           SSH_PASSPHRASE: ${{ secrets.TEST_SECRET }}
           ID_TEMPLATE: ${{ github.event.client_payload.id}}\
           NODE_TEMPLATE: ${{ github.event.client_payload.node}}\
-          ID_NEW_TEMPLATE: ${{ github.event.client_payload.id_template}}\
+          ID_NEW_TEMPLATE: ${{ github.event.client_payload.new_id}}\
 
       - uses: actions/setup-go@v3
         with:
@@ -45,8 +49,4 @@ jobs:
       - run: go version
       - run: go env -w GO111MODULE=off
       - run: go get -u github.com/helloyi/go-sshclient
-      - run: | 
-          sed -i 's/id_template/'$ID_TEMPLATE'/g'  docs/hello_world.go
-          sed -i 's/node_template/'$NODE_TEMPLATE'/g'  docs/hello_world.go
-          sed -i 's/new_id_template/'$ID_NEW_TEMPLATE'/g'  docs/hello_world.go
       - run: go run 'docs/hello_world.go'
