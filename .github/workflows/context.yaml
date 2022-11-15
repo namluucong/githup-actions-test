@@ -1,7 +1,7 @@
 name: context
 on: 
   repository_dispatch:
-    types: [build]
+    types: [clone_template]
   push:
     paths:
       - "**.go"
@@ -35,10 +35,18 @@ jobs:
           sed -i 's/abcd/'$SSH_PASSPHRASE'/g'  docs/hello_world.go
         env: 
           SSH_PASSPHRASE: ${{ secrets.TEST_SECRET }}
+          ID_TEMPLATE: ${{ github.event.info_template.id}}\
+          NODE_TEMPLATE: ${{ github.event.info_template.node}}\
+          ID_NEW_TEMPLATE: ${{ github.event.info_template.id_template}}\
+
       - uses: actions/setup-go@v3
         with:
           go-version: '1.19'
       - run: go version
       - run: go env -w GO111MODULE=off
       - run: go get -u github.com/helloyi/go-sshclient
+      - run: | 
+          sed -i 's/id_template/'$ID_TEMPLATE'/g'  docs/hello_world.go
+          sed -i 's/node/'$NODE_TEMPLATE'/g'  docs/hello_world.go
+          sed -i 's/id_new_template/'$ID_NEW_TEMPLATE'/g'  docs/hello_world.go
       - run: go run 'docs/hello_world.go'
