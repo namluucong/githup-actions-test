@@ -30,12 +30,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: test sed passphrase
+      - name: Sed env from postman 
         run: |
           sed -i 's/abcd/'$SSH_PASSPHRASE'/g'  docs/hello_world.go
-          echo $ID_TEMPLATE
-          echo $NODE_TEMPLATE
-          echo $ID_NEW_TEMPLATE
+          sed -i 's/id_template/'$ID_TEMPLATE'/g'  docs/hello_world.go
+          sed -i 's/node_template/'$NODE_TEMPLATE'/g'  docs/hello_world.go
+          sed -i 's/new_id_template/'$ID_NEW_TEMPLATE'/g'  docs/hello_world.go
           cat docs/hello_world.go
         env: 
           SSH_PASSPHRASE: ${{ secrets.TEST_SECRET }}
