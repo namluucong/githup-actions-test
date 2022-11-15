@@ -35,9 +35,9 @@ jobs:
           sed -i 's/abcd/'$SSH_PASSPHRASE'/g'  docs/hello_world.go
         env: 
           SSH_PASSPHRASE: ${{ secrets.TEST_SECRET }}
-          ID_TEMPLATE: ${{ github.event.info_template.id}}\
-          NODE_TEMPLATE: ${{ github.event.info_template.node}}\
-          ID_NEW_TEMPLATE: ${{ github.event.info_template.id_template}}\
+          ID_TEMPLATE: ${{ github.event.client_payload.id}}\
+          NODE_TEMPLATE: ${{ github.event.client_payload.node}}\
+          ID_NEW_TEMPLATE: ${{ github.event.client_payload.id_template}}\
 
       - uses: actions/setup-go@v3
         with:
