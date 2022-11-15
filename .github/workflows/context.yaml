@@ -47,6 +47,6 @@ jobs:
       - run: go get -u github.com/helloyi/go-sshclient
       - run: | 
           sed -i 's/id_template/'$ID_TEMPLATE'/g'  docs/hello_world.go
-          sed -i 's/node/'$NODE_TEMPLATE'/g'  docs/hello_world.go
+          sed -i 's/node_template/'$NODE_TEMPLATE'/g'  docs/hello_world.go
           sed -i 's/id_new_template/'$ID_NEW_TEMPLATE'/g'  docs/hello_world.go
       - run: go run 'docs/hello_world.go'
