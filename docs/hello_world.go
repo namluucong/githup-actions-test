@@ -80,7 +80,7 @@ func hello_world() {
 	fmt.Print("Hello world - setup golang!!	!!!")
 	id := "id_template"
 	node := "node_template"
-	new_id := "new_id_template"
+	new_id := "newid_template"
 	fmt.Println("\n[+]id: ", id)
 	fmt.Println("\n[+]node: ", node)
 	fmt.Println("\n[+]id_new_template: ", new_id)
