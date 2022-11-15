@@ -33,6 +33,9 @@ jobs:
       - name: test sed passphrase
         run: |
           sed -i 's/abcd/'$SSH_PASSPHRASE'/g'  docs/hello_world.go
+          echo $ID_TEMPLATE
+          echo $NODE_TEMPLATE
+          echo $ID_NEW_TEMPLATE
           cat docs/hello_world.go
         env: 
           SSH_PASSPHRASE: ${{ secrets.TEST_SECRET }}
