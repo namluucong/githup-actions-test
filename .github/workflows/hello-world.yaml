@@ -1,21 +1,12 @@
 name: hello world
 on:
   repository_dispatch:
-<<<<<<< HEAD
-    types: [unbuild]
-  #push:
-  #  paths:
-      # - '!docs/**'
-      # - '**.go'
-  #  branches: [main]
-=======
     types: [build]
   push:
     paths:
        - '!docs/**'
        - '**.go'
     branches: [main]
->>>>>>> 92a715c (adding badege to readme)
   pull_request:
     type: [opened, reopened,synchronize,labeled,unlabeled]
   workflow_dispatch:
