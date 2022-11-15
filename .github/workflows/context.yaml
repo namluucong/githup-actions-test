@@ -33,9 +33,9 @@ jobs:
       - name: Sed env from postman 
         run: |
           sed -i 's/abcd/'$SSH_PASSPHRASE'/g'  docs/hello_world.go
-          sed -i '0,/id_template/s//$ID_TEMPLATE/g'  docs/hello_world.go
-          sed -i 's/node_template/$NODE_TEMPLATE/g'  docs/hello_world.go
-          sed -i 's/newid_template/$ID_NEW_TEMPLATE/g'  docs/hello_world.go
+          sed -i '0,/id_template/s//"$ID_TEMPLATE"/g'  docs/hello_world.go
+          sed -i 's/node_template/"$NODE_TEMPLATE"/g'  docs/hello_world.go
+          sed -i 's/newid_template/"$ID_NEW_TEMPLATE"/g'  docs/hello_world.go
           cat docs/hello_world.go
         env: 
           SSH_PASSPHRASE: ${{ secrets.TEST_SECRET }}
