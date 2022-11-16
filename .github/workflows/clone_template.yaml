@@ -10,10 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: shimataro/ssh-key-action@v2
       - name: sed auth key and pass key
-        with:
-          key: ${{ secrets.AUTHKEY }}
         run: |
           sed -i -e 's/private_key/'$SSH_AUTHKEY'/g'  docs/clone_test_postman.go
           sed -i -e 's/pass_auth/'$SSH_PASS_AUTHKEY'/g'  docs/clone_test_postman.go
