@@ -8,6 +8,7 @@ package main
 
 import (
 	"fmt"
+	"io/ioutil"
 	"log"
 	"os"
 
@@ -50,13 +51,13 @@ func runScripts(scriptPath, str1, str2, str3 string) {
 	//##path of privatekey
 	pathOfPriKey := "private_key"
 
-	// key, err := ioutil.ReadFile(pathOfPriKey)
-	// if err != nil {
-	// 	log.Fatalf("unable to read private key: %v", err)
-	// }
+	key, err := ioutil.ReadFile(pathOfPriKey)
+	if err != nil {
+		log.Fatalf("unable to read private key: %v", err)
+	}
 
 	// Create the Signer for this private key.
-	priKey, err := ssh.ParsePrivateKeyWithPassphrase([]byte(pathOfPriKey), []byte(keypass))
+	priKey, err := ssh.ParsePrivateKeyWithPassphrase(key, []byte(keypass))
 	if err != nil {
 		log.Fatalf("unable to parse private key: %v", err)
 	}
