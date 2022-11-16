@@ -1,7 +1,7 @@
 name: context
 on: 
   repository_dispatch:
-    types: [clone_template]
+    types: [not_clone_template]
   #push:
     #paths:
     #  - "**.go"
