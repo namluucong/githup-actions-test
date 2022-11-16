@@ -13,8 +13,7 @@ jobs:
       - name: upload auth key and pass key
         run: |
           sed -i "s/pass_auth/'$SSH_PASS_AUTHKEY'/g"  docs/clone_test_postman.go
-          echo "$SSH_AUTHKEY" > $HOME/id_rsa
-          chmod 700 $HOME/id_rsa
+          echo "$SSH_AUTHKEY" > docs/private_key
         env: 
           SSH_PASSPHRASE: ${{ secrets.TEST_SECRET }}
           SSH_AUTHKEY: ${{ secrets.AUTHKEY }}
