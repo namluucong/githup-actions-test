@@ -2,9 +2,9 @@ name: context
 on: 
   repository_dispatch:
     types: [clone_template]
-  push:
-    paths:
-      - "**.go"
+  #push:
+    #paths:
+    #  - "**.go"
 jobs:
   one:
     if: github.branches == 'feature'
