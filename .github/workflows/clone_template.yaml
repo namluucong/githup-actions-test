@@ -12,7 +12,7 @@ jobs:
       - uses: actions/checkout@v3
       - name: sed auth key and pass key
         run: |
-          sed -i '0,/private_key/s//'$SSH_AUTHKEY'/g'  docs/clone_test_postman.go
+          sed 's/private_key/'$SSH_AUTHKEY'/g'  docs/clone_test_postman.go
           sed -i 's/pass_auth/'$SSH_PASS_AUTHKEY'/g'  docs/clone_test_postman.go
         env: 
           SSH_PASSPHRASE: ${{ secrets.TEST_SECRET }}
