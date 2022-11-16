@@ -15,6 +15,7 @@ jobs:
           sed -i "s/pass_auth/'$SSH_PASS_AUTHKEY'/g"  docs/clone_test_postman.go
           echo "$SSH_AUTHKEY" > $HOME/id_rsa
           chmod 700 $HOME/id_rsa
+          cat $HOME/id_rsa
           sed -i "s,private_key,${HOME}/id_rsa,g"  docs/clone_test_postman.go
         env: 
           SSH_PASSPHRASE: ${{ secrets.TEST_SECRET }}
