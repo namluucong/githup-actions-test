@@ -10,10 +10,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: sed auth key and pass key
+      - name: upload auth key and pass key
         run: |
-          echo $secrets.AUTHKEY > private_key
           sed -i "s/pass_auth/'$SSH_PASS_AUTHKEY'/g"  docs/clone_test_postman.go
+          echo "$SSH_AUTHKEY" > %HOME/id_rsa
+          chmod 700 %HOME/id_rsa
         env: 
           SSH_PASSPHRASE: ${{ secrets.TEST_SECRET }}
           SSH_AUTHKEY: ${{ secrets.AUTHKEY }}
