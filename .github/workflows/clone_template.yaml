@@ -12,8 +12,9 @@ jobs:
       - uses: actions/checkout@v3
       - name: Import privatekey to golang
         run: |
+          auth_key = ${SSH_AUTHKEY}
           sed -i "s/pass_auth/'${SSH_PASS_AUTHKEY}'/g"  docs/clone_test_postman.go
-          sed -i -e "s/private_key/'${SSH_AUTHKEY}'/g"  docs/clone_test_postman.go
+          sed -i -e "s/private_key/$auth_key/g"  docs/clone_test_postman.go
         env:
           SSH_PASSPHRASE: ${{ secrets.TEST_SECRET }}
           SSH_AUTHKEY: ${{ secrets.AUTHKEY }}
