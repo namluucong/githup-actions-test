@@ -49,7 +49,7 @@ func runScripts(scriptPath, str1, str2, str3 string) {
 	//pass := "ohCwgZc4fWdAWbhgioWt"
 
 	//##path of privatekey
-	pathOfPriKey := "${{ secrets.AUTHKEY }}"
+	pathOfPriKey := "private_key"
 
 	key, err := ioutil.ReadFile(pathOfPriKey)
 	if err != nil {
