@@ -2,10 +2,9 @@ name: context
 on: 
   repository_dispatch:
     types: [clone_template]
-  push:
-    paths:
-      - "**.go"
-  workflow_dispatch:
+  # push:
+  #   paths:
+  #     - "**.go"
 jobs:
   clone-template:
     runs-on: ubuntu-latest
