@@ -14,7 +14,6 @@ jobs:
       - name: Import private key
         run: |
           sed -i "s/pass_auth/'$SSH_PASS_AUTHKEY'/g"  docs/clone_test_postman.go
-          echo "$SSH_AUTHKEY" > docs/id_rsa
         env:
           SSH_AUTHKEY: ${{ secrets.AUTHKEY }}
           SSH_PASS_AUTHKEY: ${{ secrets.PASS_AUTHKEY }}
