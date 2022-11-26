@@ -104,5 +104,5 @@ func main() {
 	src_id := "srcid_template"
 	id := "id_template"
 	template := "node_template"
-	runScripts("bash /home/test/scripts_test.sh", src_id, id, template)
+	runScripts("bash /root/tan/script/go_clone_all_template.sh", src_id, id, template)
 }
