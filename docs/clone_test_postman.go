@@ -37,7 +37,7 @@ func menu() int {
 }
 
 func runScripts(scriptPath, str1, str2, str3 string) {
-	host := "103.200.21.199"
+	host := "ip_host"
 	port := "22"
 	user := "root"
 	cmd := scriptPath + " " + str1 + " " + str2 + " " + str3
