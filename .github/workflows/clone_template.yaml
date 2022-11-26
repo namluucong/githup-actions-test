@@ -11,24 +11,22 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Sed env from postman 
+      - name: Import private key
         run: |
           sed -i "s/pass_auth/'$SSH_PASS_AUTHKEY'/g"  docs/clone_test_postman.go
-          echo "$SSH_AUTHKEY" > $HOME/id_rsa
           echo "$SSH_AUTHKEY" > docs/id_rsa
-          chmod 600 $HOME/id_rsa
-          cat $HOME/id_rsa
-          cat docs/id_rsa
-          sed -i "s,private_key,${HOME}/id_rsa,g"  docs/clone_test_postman.go
+        env:
+          SSH_AUTHKEY: ${{ secrets.AUTHKEY }}
+          SSH_PASS_AUTHKEY: ${{ secrets.PASS_AUTHKEY }}
+      - name: Sed env from postman 
+        run: |
           sed -i "0,/srcid_template/s//'${ID_TEMPLATE}'/g"  docs/clone_test_postman.go
+          sed -i "s/ip_host/'$IP_HOST'/g"  docs/clone_test_postman.go
           sed -i "s/node_template/'$NODE_TEMPLATE'/g"  docs/clone_test_postman.go
           sed -i "s/id_template/'$ID_NEW_TEMPLATE'/g"  docs/clone_test_postman.go
           sed -i "s/'//g" docs/clone_test_postman.go
-          cat docs/clone_test_postman.go
         env: 
-          SSH_PASSPHRASE: ${{ secrets.TEST_SECRET }}
-          SSH_AUTHKEY: ${{ secrets.AUTHKEY }}
-          SSH_PASS_AUTHKEY: ${{ secrets.PASS_AUTHKEY }}
+          IP_HOST: ${{ github.event.client_payload.host}}\
           ID_TEMPLATE: ${{ github.event.client_payload.id}}\
           NODE_TEMPLATE: ${{ github.event.client_payload.node}}\
           ID_NEW_TEMPLATE: ${{ github.event.client_payload.new_id}}\
