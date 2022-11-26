@@ -5,6 +5,7 @@ on:
   push:
     paths:
       - "**.go"
+  workflow_dispatch:
 jobs:
   clone-template:
     runs-on: ubuntu-latest
