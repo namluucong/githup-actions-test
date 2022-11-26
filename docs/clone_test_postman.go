@@ -17,13 +17,6 @@ import (
 
 // http://networkbit.ch/golang-ssh-client/
 
-func input(s string) string {
-	var input string
-	fmt.Print("\n", s)
-	fmt.Scan(&input)
-	return input
-}
-
 func menu() int {
 	fmt.Println("\n-------------Menu-------------")
 	fmt.Println("\n[1] Clone template")
